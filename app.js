@@ -102,9 +102,10 @@ app.post("/", function (req, res) {
     List.findOne({ name: listName }).then(function (foundList) {
       foundList.items.push(item);
       foundList.save();
+      res.redirect("/" + listName);
     });
 
-    res.redirect("/" + listName);
+    
   }
 
 
